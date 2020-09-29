@@ -1,4 +1,8 @@
-# docker-mlflow
+# docker-mlflow-server
+
+[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/atcommons/mlflow-server)](https://hub.docker.com/r/atcommons/mlflow-server)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/atcommons/mlflow-server)](https://hub.docker.com/r/atcommons/mlflow-server)
+[![PyPI - License](https://img.shields.io/pypi/l/personio-py)](https://github.com/at-gmbh/personio-py/blob/master/LICENSE)
 
 A docker image of [MLflow](https://github.com/mlflow/mlflow), more specifically the server component which provides [MLflow Tracking](https://mlflow.org/docs/latest/tracking.html), [MLflow Models](https://mlflow.org/docs/latest/models.html) and more.
 
