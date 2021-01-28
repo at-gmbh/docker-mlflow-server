@@ -1,0 +1,21 @@
+name: latest version
+
+on:
+  schedule:
+    - cron: '20 1 * * *'
+
+jobs:
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get remote package data
+        uses: wei/curl@master
+        with:
+          args: --silent "https://pypi.org/rss/project/mlflow/releases.xml" --output package_data.xml
+
+      - name: Check remote version with local
+        run: |
+          sed -n 's:.*<title>\(.*\)</title>.*:\1:p' package_data.xml | head -2 | tail -1 | grep -q $(sed -n -e 's/^.*VERSION=//p' Dockerfile)
