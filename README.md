@@ -6,6 +6,10 @@
 
 A docker image of [MLflow](https://github.com/mlflow/mlflow), more specifically the server component which provides [MLflow Tracking](https://mlflow.org/docs/latest/tracking.html), [MLflow Models](https://mlflow.org/docs/latest/models.html) and more.
 
+## Update
+
+When a new version is released, please make a git commit with the modified version in the docker file and the corresponding tag with format "vx.x.x".
+
 ## Contact
 
 Sebastian Straub (sebastian.straub [at] alexanderthamm.com)
