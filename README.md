@@ -6,7 +6,58 @@
 
 A docker image of [MLflow](https://github.com/mlflow/mlflow), more specifically the server component which provides [MLflow Tracking](https://mlflow.org/docs/latest/tracking.html), [MLflow Models](https://mlflow.org/docs/latest/models.html) and more.
 
-## Update
+## Supported Tags
+
+* [latest](https://github.com/at-gmbh/docker-mlflow-server/blob/master/Dockerfile)
+* [1.13.1](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.13.1/Dockerfile)
+* [1.13](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.13/Dockerfile)
+* [1.12.1](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.12.1/Dockerfile)
+* [1.12](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.12.0/Dockerfile)
+
+These tags denote version numbers that correspond to the published versions of the [mlflow package on PyPI](https://pypi.org/project/mlflow/).
+
+## How to use this image
+
+You may run the docker image with
+
+    docker run -it --rm -p 5000:5000 -v /local/path:/mlflow --name mlflow-server atcommons/mlflow-server
+
+This will expose port 5000 of the container to the host system and mount the `/mlflow` folder from the container to `/local/path` for persistence (you should adapt this path to your needs).
+
+Now the mlflow webserver should be available on [localhost:5000](http://localhost:5000/#/).
+
+### Configuration
+
+The mlflow instance can be configured through environment variables
+
+* `BACKEND_URI`: Define the [backend store](https://mlflow.org/docs/latest/tracking.html#backend-stores) where experiments and all metadata are stored. You may provide a file path or a database URI. Defaults to a local sqlite database.
+* `ARTIFACT_ROOT`: Define the root directory of mlflow's [artifact store](https://mlflow.org/docs/latest/tracking.html#artifact-stores). Note that serving of files in the artifact store is not managed by the mlflow server, so you have to provide a storage path that is accessible by the server as well as all clients. While using local paths is possible, it is not very useful in practice. Feasible backends are Amazon S3, Azure Blob Storage, Google Cloud Storage and more.
+
+### docker-compose
+
+For a better UX when handling all these parameters, please refer to the sample [`docker-compose.yml`](./docker-compose.yml) or adapt this code block to your needs:
+
+```
+version: '3'
+
+services:
+  mlflow:
+    image: 'atcommons/mlflow-server'
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./data:/mlflow"
+    environment:
+      BACKEND_URI: sqlite:////mlflow/mlflow.db
+      ARTIFACT_ROOT: /mlflow/artifacts
+```
+
+When you're happy with the configuration, just run
+
+    docker-compose up -d
+
+## Maintaining this Build
 
 When a new version is released, please make a git commit with the modified version in the docker file and the corresponding tag with format "vx.x.x".
 
