@@ -1,6 +1,6 @@
 FROM python:3-slim
 LABEL maintainer="Alexander Thamm GmbH <contact@alexanderthamm.com>"
-ARG MLFLOW_VERSION=1.14.0
+ARG MLFLOW_VERSION=1.14.1
 
 WORKDIR /mlflow/
 RUN pip install --no-cache-dir mlflow==$MLFLOW_VERSION
