@@ -1,9 +1,10 @@
-FROM python:3-slim
+FROM python:3.10-slim
 LABEL maintainer="Alexander Thamm GmbH <contact@alexanderthamm.com>"
+ARG PROTOBUF_VERSION=3.19.0
 ARG MLFLOW_VERSION=1.19.0
 
 WORKDIR /mlflow/
-RUN pip install --no-cache-dir mlflow==$MLFLOW_VERSION
+RUN pip install --no-cache-dir protobuf==$PROTOBUF_VERSION mlflow==$MLFLOW_VERSION
 EXPOSE 5000
 
 ENV BACKEND_URI sqlite:////mlflow/mlflow.db
