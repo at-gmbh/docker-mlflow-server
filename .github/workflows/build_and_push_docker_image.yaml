@@ -28,7 +28,7 @@ jobs:
       - name: Extract version string
         id: get_version
         run: |
-          echo "CONTAINER_VERSION=$(cat ./Dockerfile | grep -E 'MLFLOW_VERSION\s?=' | cut -d '=' -f 2)" >> $GITHUB_ENV
+          echo "CONTAINER_VERSION=$(cat ./requirements.txt | grep -E 'mlflow' | cut -d '=' -f 3)" >> $GITHUB_ENV
 
       - name: Build and push
         id: docker_build
