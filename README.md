@@ -10,6 +10,7 @@ A docker image of [MLflow](https://github.com/mlflow/mlflow), more specifically 
 ## Supported Tags
 
 * [latest](https://github.com/at-gmbh/docker-mlflow-server/blob/master/Dockerfile)
+* [1.20.0](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.20.0/Dockerfile)
 * [1.19.0](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.19.0/Dockerfile)
 * [1.18.0](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.18.0/Dockerfile)
 * [1.17.0](https://github.com/at-gmbh/docker-mlflow-server/blob/v1.17.0/Dockerfile)
