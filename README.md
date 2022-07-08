@@ -67,17 +67,18 @@ When you're happy with the configuration, just run
 
 ## Maintaining this Build
 
-When a new version is released, please make a git commit with the modified version in the docker file and the corresponding tag with format "vx.x.x".
+When a new version is released, please make a git commit with the modified version in the [requirements.txt](./requirements.txt) file and the corresponding git tag with format "vx.x.x".
 
 ## Contact
 
-Sebastian Straub (sebastian.straub [at] alexanderthamm.com)
+* Sebastian Straub (sebastian.straub [at] alexanderthamm.com)
+* Carsten Böhm (carsten.boehm [at] alexanderthamm.com)
 
 Developed with ❤ at [Alexander Thamm GmbH](https://www.alexanderthamm.com/)
 
 ## License
 
-    Copyright 2020 Alexander Thamm GmbH
+    Copyright 2020-2022 Alexander Thamm GmbH
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
