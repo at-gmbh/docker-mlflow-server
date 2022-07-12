@@ -52,7 +52,6 @@ version: '3'
 services:
   mlflow:
     image: 'atcommons/mlflow-server'
-    build: .
     ports:
       - "5000:5000"
     volumes:
